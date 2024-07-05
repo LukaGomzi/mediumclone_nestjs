@@ -6,7 +6,7 @@ export class TagController {
   constructor(private readonly tagService: TagService) {}
 
   @Get()
-  findAll() {
+  findAll(): string[] {
     return this.tagService.findAll();
   }
 }
