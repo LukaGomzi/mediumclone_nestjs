@@ -26,7 +26,14 @@ export class ProfileService {
             throw new HttpException('Profile does not exist', HttpStatus.NOT_FOUND);
         }
 
-        return { ...user, following: false };
+        const follows = await this.followRepository.findOne({
+            where: {
+                follower: userId,
+                followingId: user.id
+            }
+        })
+
+        return { ...user, following: Boolean(follows) };
     }
 
     async followProfile(userId: number, profileUsername: string): Promise<ProfileType> {
@@ -44,7 +51,7 @@ export class ProfileService {
             throw new HttpException('Follower and Following cant be equal', HttpStatus.BAD_REQUEST);
         }
 
-        const follow = this.followRepository.findOne({
+        const follow = await this.followRepository.findOne({
             where: {
                 follower: userId,
                 followingId: user.id
