@@ -1,73 +1,142 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="200" alt="Nest Logo" /></a>
-</p>
+# MediumClone NestJS Backend
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+This is a backend API implementation of the RealWorld "Medium" clone application using NestJS. It adheres to the [RealWorld API specification](https://realworld-docs.netlify.app/docs/specs/backend-specs/introduction) and serves as a reference for building full-stack applications with NestJS.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://coveralls.io/github/nestjs/nest?branch=master" target="_blank"><img src="https://coveralls.io/repos/github/nestjs/nest/badge.svg?branch=master#9" alt="Coverage" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+## Table of Contents
 
-## Description
+- [Introduction](#introduction)
+- [Features](#features)
+- [Installation](#installation)
+- [Running the Application](#running-the-application)
+- [Testing with Postman](#testing-with-postman)
+- [Frontend Integration](#frontend-integration)
+- [Contributing](#contributing)
+- [License](#license)
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+## Introduction
+
+This project is part of the RealWorld full-stack example applications, showcasing how to build a production-ready application with NestJS. It includes all necessary features such as authentication, CRUD operations for articles and comments, user profiles, and more.
+
+## Features
+
+- User authentication with JWT
+- CRUD operations for articles
+- CRUD operations for comments
+- User profile management
+- Follow/unfollow other users
+- Pagination for articles
+- Favoriting articles
 
 ## Installation
 
+To get started with this project, follow these steps:
+
+1. **Clone the repository:**
+
+    ```bash
+    git clone git@github.com:LukaGomzi/mediumclone_nestjs.git
+    cd mediumclone_nestjs
+    ```
+
+2. **Install Node.js 18+ and NestJS** (if not already installed).
+
+3. **Install Yarn** (if not already installed):
+
+    ```bash
+    npm install -g yarn
+    ```
+
+4. **Install dependencies:**
+
+    ```bash
+    yarn install
+    ```
+
+5. **Run database migrations:**
+
+    ```bash
+    yarn db:migrate
+    ```
+
+6. **(Optional) Seed the database with test data:**
+
+    ```bash
+    yarn db:seed
+    ```
+
+## Running the Application
+
+To run the application, execute:
+
 ```bash
-$ yarn install
+yarn start
 ```
 
-## Running the app
+The API will be available at http://localhost:3000.
 
-```bash
-# development
-$ yarn run start
+## Testing with Postman
 
-# watch mode
-$ yarn run start:dev
+A Postman collection is provided for testing the API endpoints. You can find the collection [here](https://github.com/LukaGomzi/mediumclone_nestjs/blob/master/postman/NestJS%20Mediumclone.postman_collection.json).
 
-# production mode
-$ yarn run start:prod
-```
+1. **Import the collection into Postman:**
+    - Open Postman.
+    - Go to `File > Import`.
+    - Select the provided Postman collection file.
 
-## Test
+2. **Run the requests in the collection to test the endpoints.**
 
-```bash
-# unit tests
-$ yarn run test
+## Frontend Integration
 
-# e2e tests
-$ yarn run test:e2e
+To test the API with a frontend, you can use the Angular implementation of the RealWorld frontend:
 
-# test coverage
-$ yarn run test:cov
-```
+1. **Clone the Angular RealWorld example app:**
 
-## Support
+    ```bash
+    git clone https://github.com/gothinkster/angular-realworld-example-app.git
+    cd angular-realworld-example-app
+    ```
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+2. **Install Angular CLI** (if not already installed):
 
-## Stay in touch
+    ```bash
+    npm install -g @angular/cli
+    ```
 
-- Author - [Kamil Myśliwiec](https://kamilmysliwiec.com)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+3. **Install Yarn** (if not already installed):
+
+    ```bash
+    npm install -g yarn
+    ```
+
+4. **Ensure you are using Node version 20.11.1**:
+
+    ```bash
+    nvm install 20.11.1
+    nvm use 20.11.1
+    ```
+
+5. **Install dependencies:**
+
+    ```bash
+    yarn install
+    ```
+
+6. **Update API URL in the frontend:**
+    - Open `src/app/core/interceptors/api.interceptor.ts`.
+    - Change the API URL to `http://localhost:3000`.
+
+7. **Run the frontend application:**
+
+    ```bash
+    ng serve
+    ```
+
+The frontend will be available at `http://localhost:4200`.
+
+## Contributing
+
+Contributions are welcome! Please submit a pull request or open an issue to discuss any changes.
 
 ## License
 
-Nest is [MIT licensed](LICENSE).
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
